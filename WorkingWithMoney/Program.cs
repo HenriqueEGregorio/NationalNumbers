@@ -21,5 +21,5 @@ Money euro = new Money(Currency.EUR, 1000);
 Debug.WriteLine(euro);
 
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-Money dolar = new Money(Currency.USD, 1000);
+Money dolar = new(Currency.USD, 1000);
 Debug.WriteLine(dolar);
