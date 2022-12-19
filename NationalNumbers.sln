@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentValidation", "DocumentValidation\DocumentValidation.csproj", "{0C988628-E396-4E73-A87E-F8405AD3631D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentValidation", "DocumentValidation\DocumentValidation.csproj", "{0C988628-E396-4E73-A87E-F8405AD3631D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithDates", "WorkingWithDates\WorkingWithDates.csproj", "{96F988F2-F35A-4EA2-80FD-3E2C7F505A90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithDates", "WorkingWithDates\WorkingWithDates.csproj", "{96F988F2-F35A-4EA2-80FD-3E2C7F505A90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithMoney", "WorkingWithMoney\WorkingWithMoney.csproj", "{54942E33-9393-4FEC-A281-D921CEB53592}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{96F988F2-F35A-4EA2-80FD-3E2C7F505A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96F988F2-F35A-4EA2-80FD-3E2C7F505A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96F988F2-F35A-4EA2-80FD-3E2C7F505A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54942E33-9393-4FEC-A281-D921CEB53592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54942E33-9393-4FEC-A281-D921CEB53592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54942E33-9393-4FEC-A281-D921CEB53592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54942E33-9393-4FEC-A281-D921CEB53592}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
