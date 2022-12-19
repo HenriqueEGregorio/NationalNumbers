@@ -17,7 +17,7 @@ decimal secondValueDecimal = 20m;
 Money result = valueDecimal - secondValueDecimal;
 Debug.WriteLine(result);
 
-Money euro = new Money(Currency.EUR, 1000);
+Money euro = new(Currency.EUR, 1000);
 Debug.WriteLine(euro);
 
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
