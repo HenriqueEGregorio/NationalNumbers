@@ -1,4 +1,6 @@
-﻿using Caelum.Stella.CSharp.Http;
+﻿using Caelum.Stella.CSharp.Format;
+using Caelum.Stella.CSharp.Http;
+using Caelum.Stella.CSharp.Vault;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
@@ -7,7 +9,7 @@ var Contract = new
     Company = new
     {
         CorporateName = "Lojas ilimitadas",
-        document = "95317247000142",
+        document = new CNPJFormatter().Format("95317247000142"),
         Address = new ViaCEP().GetEndereco("34580170"),
         CorporateNumber = "456",
 
@@ -15,7 +17,7 @@ var Contract = new
     Employee = new
     {
         Name = "Kessy Alessandra",
-        document = "01997884054",
+        document = new CPFFormatter().Format("01997884054"),
         IdentityCard = "386425309",
         Nationality = "Repitiliano(a)",
         MaritalStatus = "Solteiro()",
@@ -23,15 +25,15 @@ var Contract = new
         CorporateNumber = "979",
     },
     Occupation = "Eletricista",
-    Wage = 2000.50,
-    StartDate = new DateTime(2020, 1, 1),
+    Wage = new Money(2000.50),
+    StartDate = new DateTime(2020, 1, 1).ToString("d"),
 };
 
 string document = $@"CONTRATO INDIVIDUAL DE TRABALHO TEMPORÁRIO
 
 EMPREGADOR: {Contract.Company.CorporateName}, com sede à {Contract.Company.Address.Logradouro}, {Contract.Company.CorporateNumber}, {Contract.Company.Address.Bairro}, CEP {Contract.Company.Address.CEP}, {Contract.Company.Address.Localidade}, {Contract.Company.Address.UF}, inscrita no CNPJ sob nº {Contract.Company.document};
 
-EMPREGADO: {Contract.Employee.Name}, {Contract.Employee.Nationality}, {Contract.Employee.MaritalStatus}, portador da cédula de identidade R.G. nº {Contract.Employee.IdentityCard} e CPF/MF nº {Contract.Employee.document}, residente e domiciliado na {Contract.Employee.Address.Localidade}, {Contract.Employee.CorporateNumber}, {Contract.Employee.Address.Bairro}, CEP {Contract.Employee.Address.CEP}, {Contract.Employee.Address.Localidade}, {Contract.Employee.Address.UF}.
+EMPREGADO: {Contract.Employee.Name}, {Contract.Employee.Nationality}, {Contract.Employee.MaritalStatus}, portador da cédula de identidade R.G. nº {Contract.Employee.IdentityCard} e CPF/MF nº {Contract.Employee.document}, residente e domiciliado na {Contract.Employee.Address.Logradouro}, {Contract.Employee.CorporateNumber}, {Contract.Employee.Address.Bairro}, CEP {Contract.Employee.Address.CEP}, {Contract.Employee.Address.Localidade}, {Contract.Employee.Address.UF}.
 
 Pelo presente instrumento particular de contrato individual de trabalho, fica justo e contratado o seguinte:
 
@@ -39,7 +41,7 @@ Cláusula 1ª - O EMPREGADO prestará ao EMPREGADOR, a partir de {Contract.Start
 
 Cláusula 2ª - Não haverá expediente nos dias de sábado, sendo prestado a compensação de horário semanal;
 
-Cláusula 3ª - O EMPREGADOR pagará mensalmente, ao EMPREGADO, a título de salário a importância de {Contract.Wage} (SALÁRIO POR EXTENSO), com os descontos previstos por lei;
+Cláusula 3ª - O EMPREGADOR pagará mensalmente, ao EMPREGADO, a título de salário a importância de {Contract.Wage} {Contract.Wage.Extenso()}, com os descontos previstos por lei;
 
 Cláusula 4ª - Estará o EMPREGADO subordinado a legislação vigente no que diz respeito aos descontos de faltas e demais sanções disciplinares contidas na Consolidação das Leis do Trabalho.
 
@@ -49,7 +51,7 @@ Cláusula 6ª - O EMPREGADO obedecerá o regulamento interno da empresa, e filos
 
 Como prova do acordado, assinam instrumento, afirmado e respeitando seu teor por inteiro, e firmam conjuntamente a este duas testemunhas, comprovando as razões descritas.
 
-(LOCALIDADE), (DATA POR EXTENSO)
+{Contract.Company.Address.Localidade}, {DateTime.Today.ToString("D")}
 
 
 _______________________________________________________
@@ -63,3 +65,6 @@ _______________________________________________________
 
 _______________________________________________________
 (Nome, R.G,Testemunha)";
+
+Console.WriteLine(document);
+Console.ReadKey();
